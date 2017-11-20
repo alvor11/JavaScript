@@ -1,7 +1,10 @@
 class Cell {
     constructor({ element, row, col, alive = false }) {
         // опредлить свойства
-
+        this.element = element;
+        this.row = row;
+        this.col = col;
+        this.alive = alive;
         // доинициализировать свойства в методе `init`
         this.init();
     }
