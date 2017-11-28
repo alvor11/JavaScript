@@ -11,11 +11,12 @@ class Cell {
 
     get alive() {
         // вернуть состояние клетки
+        return this.alive;
     }
 
     set alive(value) {
         // обвновить состояние клетки
-        
+        value? this.alive = true: this.alive = false;
         // если клетка жива, присвоить класс `alive`
         // в противном случае убрать класс `alive`
     }
