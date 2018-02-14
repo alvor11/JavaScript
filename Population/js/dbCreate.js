@@ -29,4 +29,4 @@ function dbCreate(codeCountry, codeYear) {
 // create JSON format
 let dataBase = JSON.stringify(dbCreate(CodeCountry, CodeYear), "", 4);
 // save JSON data base in file
-fs.writeFileSync('dbPopulation.json', dataBase);
+fs.writeFileSync('dbPopulation1.json', dataBase);
