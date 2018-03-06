@@ -194,16 +194,36 @@ function divSelect(key) {
 function sortFilter(arr, index, column) {
     let ul = document.createElement('ul');
     ul.style.cssText = `list-style: none; column-count: ${column};`;
-    let set = new Set();
-    for (let i = 0; i < arr.length; i++) {
-        set.add(arr[i].children[index].innerText);
+    // let set = new Set();
+    // for (let i = 0; i < arr.length; i++) {
+    //     set.add(arr[i].children[index].innerText);
                 
+    // }
+    let set = [];
+    for (let i = 0; i < arr.length; i++) {
+        if (set.length < 1){
+            set.push(arr[i].children[index].innerText);
+        } else {
+            for (let q = 0; q < set.length; q++) {
+                if(set[q] == arr[i].children[index].innerText) {
+                 break;
+                }
+            else if(q == set.length - 1 && set[q] != arr[i].children[index].innerText) {
+                set.push(arr[i].children[index].innerText);
+                }
+            }
+        }
+        
     }
-    for (const value of set) {
-        ul.appendChild(new setSelectLi(value));
+    for (let j = 0; j < set.length; j++) {
+        ul.appendChild(new setSelectLi(set[j]));
     }
+    // for (const value of set) {
+    //     ul.appendChild(new setSelectLi(value));
+    // }
     return ul;
 }
+
 // create years list for select
 function setSelectYear(column) {
     let ul = document.createElement('ul');
@@ -333,6 +353,7 @@ document.onclick = function(event) {
         modal.parentNode.removeChild(modal);
     }
     if(event.target.id == 'reset'){
+        myTable.replaceChild(initThead(), myTable.firstChild);
         myTable.replaceChild(initTbody(dbPopulation), myTable.lastChild);
     }
 
