@@ -1,0 +1,15 @@
+body {
+    position: relative;
+}
+.morph-shape {
+	position: absolute;
+	width: 240px;
+	height: 100%;
+	top: 0;
+	right: 0;
+}
+
+.morph-shape svg path {
+	stroke: #5f656f;
+	stroke-width: 5px;
+}
